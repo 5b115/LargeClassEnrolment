@@ -1,5 +1,8 @@
 package edu.zut.cs.javaee.dream.admin.dao;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
@@ -11,6 +14,10 @@ import edu.zut.cs.javaee.dream.admin.domain.Role;
 import edu.zut.cs.javaee.dream.base.dao.GenericDaoTestCase;
 
 public class RoleDaoTest extends GenericDaoTestCase<Long, Role, RoleDao> {
+	/**
+	 * Logger for this class
+	 */
+
 
 	@Autowired
 	RoleDao roleDao;
@@ -24,6 +31,9 @@ public class RoleDaoTest extends GenericDaoTestCase<Long, Role, RoleDao> {
 		Role result = this.roleDao.getOne(role_id);
 		assertEquals(test_role, result);
 		List<Role> all = this.roleDao.findAll();
+		if (logger.isInfoEnabled()) {
+			logger.info("test() - List<Role> all size ={}", all.size()); //$NON-NLS-1$
+		}
 	}
 
 }
