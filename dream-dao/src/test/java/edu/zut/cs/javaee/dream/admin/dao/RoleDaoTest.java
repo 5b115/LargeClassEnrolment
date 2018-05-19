@@ -1,8 +1,5 @@
 package edu.zut.cs.javaee.dream.admin.dao;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
-
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
