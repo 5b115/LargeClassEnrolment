@@ -3,14 +3,24 @@ package edu.zut.cs.javaee.dream.customer.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import edu.zut.cs.javaee.dream.base.service.impl.GenericManagerImpl;
+import edu.zut.cs.javaee.dream.customer.dao.CustomerDao;
 import edu.zut.cs.javaee.dream.customer.domain.Customer;
 import edu.zut.cs.javaee.dream.customer.service.CustomerManager;
 
 @Component
 public class CustomerManagerImpl extends GenericManagerImpl<Customer, Long> implements CustomerManager {
+
+	CustomerDao customerDao;
+
+	@Autowired
+	public void setCustomerDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
+		this.dao = this.customerDao;
+	}
 
 	@Override
 	public List<Customer> findByPostcode(String postcode) {

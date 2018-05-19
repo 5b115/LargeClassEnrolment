@@ -18,6 +18,7 @@ public class ModuleController extends GenericTreeController<Module, Long, Module
 	public void setModuleManager(ModuleManager moduleManager) {
 		this.moduleManager = moduleManager;
 		this.manager = this.moduleManager;
+		this.treeManager = this.moduleManager;
 	}
 
 }
