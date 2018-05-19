@@ -30,7 +30,7 @@ public abstract class GenericManagerTestCase<PK extends Serializable, T extends 
 	/**
 	 * Logger for this class
 	 */
-	final Logger logger = LogManager.getLogger(this.getClass().getName());
+	protected final Logger logger = LogManager.getLogger(this.getClass().getName());
 
 	protected M manager;
 
@@ -40,6 +40,7 @@ public abstract class GenericManagerTestCase<PK extends Serializable, T extends 
 		this.persistentClass = persistentClass;
 	}
 
+	
 	@Before
 	public void setUp() throws Exception {
 		this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
