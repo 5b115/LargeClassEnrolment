@@ -6,10 +6,10 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class BaseController {
-	
-	/**
-	 * Logger for this class
-	 */
-	final Logger logger = LogManager.getLogger(this.getClass().getName());
+
+    /**
+     * Logger for this class
+     */
+    final Logger logger = LogManager.getLogger(this.getClass().getName());
 
 }

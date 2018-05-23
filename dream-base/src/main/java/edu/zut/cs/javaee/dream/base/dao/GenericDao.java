@@ -1,12 +1,11 @@
 package edu.zut.cs.javaee.dream.base.dao;
 
-import java.io.Serializable;
-
+import edu.zut.cs.javaee.dream.base.domain.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import edu.zut.cs.javaee.dream.base.domain.BaseEntity;
+import java.io.Serializable;
 
 /**
  * Generic DAO (Data Access Object) with common methods to CRUD POJOs.
@@ -14,14 +13,12 @@ import edu.zut.cs.javaee.dream.base.domain.BaseEntity;
  * <p>
  * Extend this interface if you want type safe (no casting necessary) DAO's for
  * your domain objects.
- * 
+ *
+ * @param <T>  a type variable, Entity
+ * @param <PK> the primary key for that type，Entity Id
  * @author <a href="mailto:ming616@gmail.com">Liu Xiaoming</a>
- * @param <T>
- *            a type variable, Entity
- * @param <PK>
- *            the primary key for that type，Entity Id
  */
 @NoRepositoryBean
 public interface GenericDao<T extends BaseEntity, PK extends Serializable>
-		extends JpaRepository<T, PK>, JpaSpecificationExecutor<T> {
+        extends JpaRepository<T, PK>, JpaSpecificationExecutor<T> {
 }

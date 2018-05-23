@@ -1,33 +1,31 @@
 package edu.zut.cs.javaee.dream.admin.dao;
 
-import org.apache.logging.log4j.Logger;
+import edu.zut.cs.javaee.dream.admin.domain.User;
+import edu.zut.cs.javaee.dream.base.dao.GenericDaoTestCase;
 import org.apache.logging.log4j.LogManager;
-
-import java.util.List;
-
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import edu.zut.cs.javaee.dream.admin.domain.User;
-import edu.zut.cs.javaee.dream.base.dao.GenericDaoTestCase;
+import java.util.List;
 
 public class UserDaoTest extends GenericDaoTestCase<Long, User, UserDao> {
-	/**
-	 * Logger for this class
-	 */
-	private static final Logger logger = LogManager.getLogger(UserDaoTest.class.getName());
+    /**
+     * Logger for this class
+     */
+    private static final Logger logger = LogManager.getLogger(UserDaoTest.class.getName());
 
-	@Autowired
-	UserDao userDao;
+    @Autowired
+    UserDao userDao;
 
-	@Test
-	public void testFindAll() {
+    @Test
+    public void testFindAll() {
 
-		List<User> result = this.userDao.findAll();
-		if (logger.isInfoEnabled()) {
-			logger.info("testFindAll() - List<User> result={}", result); //$NON-NLS-1$
-		}
+        List<User> result = this.userDao.findAll();
+        if (logger.isInfoEnabled()) {
+            logger.info("testFindAll() - List<User> result={}", result); //$NON-NLS-1$
+        }
 
-	}
+    }
 
 }

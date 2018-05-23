@@ -1,11 +1,10 @@
 package edu.zut.cs.javaee.dream.base.dao;
 
-import java.io.Serializable;
-import java.util.List;
-
+import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Generic Tree DAO (Data Access Object) with common methods to CRUD POJOs.
@@ -13,15 +12,13 @@ import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
  * <p>
  * Extend this interface if you want type safe (no casting necessary) DAO's for
  * your domain objects.
- * 
+ *
+ * @param <T>  a type variable,实体类型
+ * @param <PK> the primary key for that type，实体类Id
  * @author <a href="mailto:ming616@gmail.com">Liu Xiaoming</a>
- * @param <T>
- *            a type variable,实体类型
- * @param <PK>
- *            the primary key for that type，实体类Id
  */
 @NoRepositoryBean
 public abstract interface GenericTreeDao<T extends BaseTreeEntity<T>, PK extends Serializable>
-		extends GenericDao<T, PK> {
-	List<T> getRoot();
+        extends GenericDao<T, PK> {
+    List<T> getRoot();
 }

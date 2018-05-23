@@ -1,5 +1,7 @@
 /**
  * service layer base classes
+ *
+ * @author liuxiaoming
  */
 /**
  * @author liuxiaoming

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 未捕获异常的处理，需要在web.xml中配置<error-page>
- * 
+ *
  * @author <a href="mailto:545314690@qq.om">lisenmiao</a>
  * @date 2014年7月31日下午6:03:01
  */
@@ -16,22 +16,22 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/error")
 public class HandleError {
 
-	@RequestMapping(value = "400", method = RequestMethod.GET)
-	public ModelAndView error_400(ModelMap modelMap) {
-		modelMap.put("errorMessage", "400&nbsp;&nbsp;出错了!");
-		return new ModelAndView("commons/error", modelMap);
-	}
+    @RequestMapping(value = "400", method = RequestMethod.GET)
+    public ModelAndView error_400(ModelMap modelMap) {
+        modelMap.put("errorMessage", "400&nbsp;&nbsp;出错了!");
+        return new ModelAndView("commons/error", modelMap);
+    }
 
-	@RequestMapping(value = "404", method = RequestMethod.GET)
-	public ModelAndView error_404(ModelMap modelMap) {
-		modelMap.put("errorMessage", "404&nbsp;&nbsp;找不到家了!");
-		return new ModelAndView("commons/error", modelMap);
-	}
+    @RequestMapping(value = "404", method = RequestMethod.GET)
+    public ModelAndView error_404(ModelMap modelMap) {
+        modelMap.put("errorMessage", "404&nbsp;&nbsp;找不到家了!");
+        return new ModelAndView("commons/error", modelMap);
+    }
 
-	@RequestMapping(value = "500", method = RequestMethod.GET)
-	public ModelAndView error_500(ModelMap modelMap) {
-		modelMap.put("errorMessage", "500&nbsp;&nbsp;出错了!");
-		return new ModelAndView("commons/error", modelMap);
-	}
+    @RequestMapping(value = "500", method = RequestMethod.GET)
+    public ModelAndView error_500(ModelMap modelMap) {
+        modelMap.put("errorMessage", "500&nbsp;&nbsp;出错了!");
+        return new ModelAndView("commons/error", modelMap);
+    }
 
 }
