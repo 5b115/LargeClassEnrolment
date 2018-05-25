@@ -1,115 +1,123 @@
 package edu.zut.cs.javaee.dream.base.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import javax.persistence.*;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @MappedSuperclass
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class BaseEntity extends BaseDomain {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = -6163675075289529459L;
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -6163675075289529459L;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DATECREATED")
-    protected Date dateCreated = new Date();
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "DATECREATED")
+	protected Date dateCreated = new Date();
 
-    /**
-     * 实体修改时间
-     */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DATEMODIFED")
-    protected Date dateModified = new Date();
+	/**
+	 * 实体修改时间
+	 */
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "DATEMODIFIED")
+	protected Date dateModified = new Date();
 
-    /**
-     * 实体是否被删除
-     */
-    @Column(name = "DELETED")
-    protected Boolean deleted = false;
+	/**
+	 * 实体是否被删除
+	 */
+	@Column(name = "DELETED")
+	protected Boolean deleted;
 
-    @Column(name = "ENTITY_NAME")
-    protected String entityName;
+	@Column(name = "ENTITY_NAME")
+	protected String entityName;
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	protected Long id;
 
-    @Override
-    public boolean equals(Object obj) {
-        if (null != obj) {
-            if (obj instanceof BaseEntity) {
-                BaseEntity domain = (BaseEntity) obj;
-                if (this.id == domain.id) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (null != obj) {
+			if (obj instanceof BaseEntity) {
+				BaseEntity domain = (BaseEntity) obj;
+				if (this.id == domain.id) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
-    public Date getDateCreated() {
-        return dateCreated;
-    }
+	public Date getDateCreated() {
+		return dateCreated;
+	}
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
 
-    public Date getDateModified() {
-        return dateModified;
-    }
+	public Date getDateModified() {
+		return dateModified;
+	}
 
-    public void setDateModified(Date dateModified) {
-        this.dateModified = dateModified;
-    }
+	public void setDateModified(Date dateModified) {
+		this.dateModified = dateModified;
+	}
 
-    public Boolean getDeleted() {
-        return deleted;
-    }
+	public Boolean getDeleted() {
+		return deleted;
+	}
 
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
 
-    public String getEntityName() {
-        return entityName;
-    }
+	public String getEntityName() {
+		return entityName;
+	}
 
-    public void setEntityName(String entityName) {
-        this.entityName = entityName;
-    }
+	public void setEntityName(String entityName) {
+		this.entityName = entityName;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Override
-    public int hashCode() {
-        if (this.id == null) {
-            this.id = Long.valueOf(0);
-        }
-        return HashCodeBuilder.reflectionHashCode(this.id);
-    }
+	@Override
+	public int hashCode() {
+		if (this.id == null) {
+			this.id = Long.valueOf(0);
+		}
+		return HashCodeBuilder.reflectionHashCode(this.id);
+	}
 
-    public Boolean isDeleted() {
-        return deleted;
-    }
+	public Boolean isDeleted() {
+		return deleted;
+	}
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+	}
 
 }

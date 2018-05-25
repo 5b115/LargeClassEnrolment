@@ -14,4 +14,11 @@ public interface CustomerManager extends GenericManager<Customer, Long> {
      * @return
      */
     List<Customer> findByPostcode(String postcode);
+
+    /**
+     * 
+     * @param fullname
+     * @return
+     */
+	List<Customer> findByFullname(String fullname);
 }
