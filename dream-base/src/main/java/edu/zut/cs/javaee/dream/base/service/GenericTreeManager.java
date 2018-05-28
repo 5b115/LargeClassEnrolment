@@ -1,9 +1,9 @@
 package edu.zut.cs.javaee.dream.base.service;
 
-import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
-
 import java.io.Serializable;
 import java.util.List;
+
+import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
 
 /**
  * Generic Manager that talks to GenericDao to CRUD POJOs.

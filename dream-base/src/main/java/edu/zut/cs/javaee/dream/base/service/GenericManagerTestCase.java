@@ -1,75 +1,73 @@
 package edu.zut.cs.javaee.dream.base.service;
 
-import edu.zut.cs.javaee.dream.base.BaseAbstractTestCase;
-import edu.zut.cs.javaee.dream.base.domain.BaseEntity;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-@ContextConfiguration(locations = {"classpath:/applicationContextTest-resources.xml",
-        "classpath:/applicationContext-dao.xml", "classpath:/applicationContext-service.xml"})
-@RunWith(value = SpringJUnit4ClassRunner.class)
-@Transactional
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.test.context.ContextConfiguration;
+
+import edu.zut.cs.javaee.dream.base.BaseAbstractTestCase;
+import edu.zut.cs.javaee.dream.base.domain.BaseEntity;
+
+@ContextConfiguration(locations = { "classpath:/applicationContextTest-resources.xml",
+		"classpath:/applicationContext-dao.xml", "classpath:/applicationContext-service.xml" })
 public abstract class GenericManagerTestCase<PK extends Serializable, T extends BaseEntity, M extends GenericManager<T, PK>>
-        extends BaseAbstractTestCase {
+		extends BaseAbstractTestCase {
+	protected T entity;
+	protected List<T> list;
+	protected M manager;
 
-    /**
-     * Logger for this class
-     */
-    protected final Logger logger = LogManager.getLogger(this.getClass().getName());
-    protected T entity;
-    protected List<T> list;
-    protected M manager;
+	private Class<T> persistentClass;
 
-    private Class<T> persistentClass;
+	public GenericManagerTestCase(final Class<T> persistentClass) {
+		this.persistentClass = persistentClass;
+	}
 
-    public GenericManagerTestCase(final Class<T> persistentClass) {
-        this.persistentClass = persistentClass;
-    }
+	@Before
+	public void setUp() throws Exception {
+		this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
 
+	}
 
-    @Before
-    public void setUp() throws Exception {
-        this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
+	@Test
+	public void testCRUD() {
+		if (this.entity == null) {
+			try {
+				this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
+				this.entity = this.manager.save(this.entity);
+				@SuppressWarnings("unchecked")
+				PK entity_id = (PK) this.entity.getId();
+				T foundEntity = this.manager.findById(entity_id);
+				assertEquals(this.entity, foundEntity);
 
-    }
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
-    @Test
-    public void testSave() {
-        if (this.entity == null) {
-            try {
-                this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
-                this.entity = this.manager.save(this.entity);
-            } catch (InstantiationException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IllegalArgumentException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (SecurityException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
+	}
 
-    }
+	private void assertEquals(T entity2, T foundEntity) {
+		// TODO Auto-generated method stub
+
+	}
 
 }

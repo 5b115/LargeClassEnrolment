@@ -1,10 +1,11 @@
 package edu.zut.cs.javaee.dream.base.service;
 
-import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
-import org.junit.Test;
-
 import java.io.Serializable;
 import java.util.List;
+
+import org.junit.Test;
+
+import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
 
 public abstract class GenericTreeManagerTestCase<PK extends Serializable, T extends BaseTreeEntity<T>, M extends GenericTreeManager<T, PK>>
         extends GenericManagerTestCase<PK, T, M> {
