@@ -28,7 +28,6 @@ public abstract class GenericManagerTestCase<PK extends Serializable, T extends 
 	@Before
 	public void setUp() throws Exception {
 		this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
-
 	}
 
 	@Test
@@ -36,11 +35,11 @@ public abstract class GenericManagerTestCase<PK extends Serializable, T extends 
 		if (this.entity == null) {
 			try {
 				this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
-				this.entity = this.manager.save(this.entity);
+				T newEntity = this.manager.save(this.entity);
 				@SuppressWarnings("unchecked")
-				PK entity_id = (PK) this.entity.getId();
+				PK entity_id = (PK) newEntity.getId();
 				T foundEntity = this.manager.findById(entity_id);
-				assertEquals(this.entity, foundEntity);
+				assertEquals(newEntity, foundEntity);
 
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
