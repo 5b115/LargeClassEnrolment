@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -19,6 +20,11 @@ import edu.zut.cs.javaee.dream.teach.domain.Gender;
 import edu.zut.cs.javaee.dream.teach.domain.Student;
 import edu.zut.cs.javaee.dream.teach.service.StudentManager;
 
+/**
+ *  Entity Generator for teach package.
+ * @author liuxiaoming
+ *
+ */
 public class TeachEntityGenerator extends GenericGenerator {
 
 	StudentManager studentManager;
@@ -34,6 +40,7 @@ public class TeachEntityGenerator extends GenericGenerator {
 	public void setUp() throws Exception {
 		this.studentList = new ArrayList<Student>();
 		InputStream input = UserManagerTest.class.getResourceAsStream("/JavaEE_student.xlsx");
+		@SuppressWarnings("resource")
 		XSSFWorkbook wb = new XSSFWorkbook(input);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		for (int i = 1; i <= sheet.getLastRowNum(); i++) {
@@ -42,7 +49,7 @@ public class TeachEntityGenerator extends GenericGenerator {
 			for (int j = 0; j < row.getLastCellNum(); j++) {
 				Cell cell = row.getCell(j);
 				if (cell != null) {
-					cell.setCellType(Cell.CELL_TYPE_STRING);
+					cell.setCellType(CellType.STRING);
 					String value = row.getCell(j).getStringCellValue().trim();
 					if (j == 1)
 						s.setGrade(value);
@@ -60,13 +67,12 @@ public class TeachEntityGenerator extends GenericGenerator {
 						} else if (StringUtils.equalsIgnoreCase("女", value)) {
 							s.setGender(Gender.Female);
 						}
-
 				}
 			}
 			this.studentList.add(s);
 		}
 	}
-	
+
 	@Test
 	public void test() {
 		this.studentManager.save(this.studentList);
