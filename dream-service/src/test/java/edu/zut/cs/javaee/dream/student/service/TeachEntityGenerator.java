@@ -39,7 +39,7 @@ public class TeachEntityGenerator extends GenericGenerator {
 	@Before
 	public void setUp() throws Exception {
 		this.studentList = new ArrayList<Student>();
-		InputStream input = UserManagerTest.class.getResourceAsStream("/JavaEE_student.xlsx");
+		InputStream input = UserManagerTest.class.getResourceAsStream("/javaee_student_software.xlsx");
 		@SuppressWarnings("resource")
 		XSSFWorkbook wb = new XSSFWorkbook(input);
 		XSSFSheet sheet = wb.getSheetAt(0);

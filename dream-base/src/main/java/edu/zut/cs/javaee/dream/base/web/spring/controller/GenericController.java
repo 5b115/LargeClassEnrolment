@@ -29,7 +29,6 @@ public abstract class GenericController<T extends BaseEntity, PK extends Seriali
 
 	protected Pageable pageable;
 	protected int pageNumber = 0;
-
 	protected int pageSize = 20;
 
 	/**
@@ -58,18 +57,20 @@ public abstract class GenericController<T extends BaseEntity, PK extends Seriali
 	}
 
 	/**
-	 * @param pageNumber
-	 * @param pageSize
+	 * 根据输入，返回分页结果中的当前页，包括当前页信息和其中的实体对象集合
+	 * 
+	 * @param request
+	 * @param response
 	 * @return
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public Page<T> get(@RequestParam(name = "pageNumber", defaultValue = "0") String pageNumber,
-			@RequestParam(name = "pageSize", defaultValue = "20") String pageSize) {
+	public Page<T> get(@RequestParam(name = "page", defaultValue = "0") String pageNumber,
+			@RequestParam(name = "limit", defaultValue = "20") String pageSize) {
 		if (StringUtils.isNotBlank(pageNumber)) {
-			this.pageNumber = Integer.valueOf(pageNumber);
+			this.pageNumber = Integer.valueOf(pageNumber)-1;
 		}
-		if (StringUtils.isNotBlank(pageNumber)) {
+		if (StringUtils.isNotBlank(pageSize)) {
 			this.pageSize = Integer.valueOf(pageSize);
 		}
 		this.pageable = PageRequest.of(this.pageNumber, this.pageSize, new Sort(Direction.ASC, "id"));
