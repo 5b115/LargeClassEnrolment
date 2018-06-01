@@ -11,27 +11,31 @@ import java.util.Date;
 @Table(name = "T_FEEDBACK")
 public class FeedBack extends BaseEntity {
 
-    @Column
-    protected Date time;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7041174588598351596L;
 
-    @Column
-    String content;
+	@Column
+	String content;
 
-    public String getContent() {
-        return content;
-    }
+	@Column
+	protected Date time;
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public Date getTime() {
+		return time;
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
 }

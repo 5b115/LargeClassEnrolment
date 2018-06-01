@@ -18,38 +18,39 @@ import java.util.List;
  * <p>
  * To register this class in your Spring context file, use the following XML.
  *
- * @param <T>  a type variable
- * @param <PK> the primary key for that type
+ * @param <T>
+ *            a type variable
+ * @param <PK>
+ *            the primary key for that type
  */
 @Transactional
-public class GenericManagerImpl<T extends BaseEntity, PK extends Serializable>
-        implements GenericManager<T, PK> {
+public class GenericManagerImpl<T extends BaseEntity, PK extends Serializable> implements GenericManager<T, PK> {
 
-    protected GenericDao<T, PK> dao;
+	protected GenericDao<T, PK> dao;
 
-    public Page<T> findAll(Pageable page) {
-        Page<T> result = this.dao.findAll(page);
-        return result;
-    }
+	public void delete(PK id) {
+		this.dao.deleteById(id);
+	}
 
-    public T findById(PK id) {
-        return this.dao.getOne(id);
-    }
+	public List<T> findAll() {
+		return this.dao.findAll();
+	}
 
-    public T save(T entity) {
-        return this.dao.saveAndFlush(entity);
-    }
+	public Page<T> findAll(Pageable page) {
+		Page<T> result = this.dao.findAll(page);
+		return result;
+	}
 
-    public List<T> save(Iterable<T> entities) {
-        return this.dao.saveAll(entities);
-    }
+	public T findById(PK id) {
+		return this.dao.getOne(id);
+	}
 
-    public List<T> findAll() {
-        return this.dao.findAll();
-    }
+	public List<T> save(Iterable<T> entities) {
+		return this.dao.saveAll(entities);
+	}
 
-    public void delete(PK id) {
-        this.dao.deleteById(id);
-    }
+	public T save(T entity) {
+		return this.dao.saveAndFlush(entity);
+	}
 
 }

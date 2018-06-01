@@ -16,21 +16,21 @@ import java.util.List;
  * @param <T>
  * @param <D>
  */
-@ContextConfiguration(locations = {"classpath:/applicationContextTest-resources.xml",
-        "classpath:/applicationContext-dao.xml"})
+@ContextConfiguration(locations = { "classpath:/applicationContextTest-resources.xml",
+		"classpath:/applicationContext-dao.xml" })
 public class GenericDaoTestCase<PK extends Serializable, T extends BaseEntity, D extends GenericDao<T, PK>>
-        extends BaseAbstractTestCase {
+		extends BaseAbstractTestCase {
 
-    protected PK id;
+	protected D dao;
 
-    protected T entity;
+	protected T entity;
 
-    protected D dao;
+	protected PK id;
 
-    protected List<T> list;
+	protected List<T> list;
 
-    @Before
-    public void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 
-    }
+	}
 }

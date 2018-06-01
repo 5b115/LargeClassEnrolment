@@ -8,53 +8,53 @@ import javax.persistence.*;
 @Entity
 public class User extends BaseEntity {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = -4376674977047164142L;
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -4376674977047164142L;
 
-    @Column(name = "USERNAME")
-    String username;
+	@Column(name = "EMAIL")
+	String email;
 
-    @Column(name = "PASSWORD")
-    String password;
+	@ManyToOne
+	@JoinColumn(name = "GROUP_ID")
+	Group group;
 
-    @Column(name = "EMAIL")
-    String email;
-    @ManyToOne
-    @JoinColumn(name = "GROUP_ID")
-    Group group;
+	@Column(name = "PASSWORD")
+	String password;
+	@Column(name = "USERNAME")
+	String username;
 
-    public Group getGroup() {
-        return group;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setGroup(Group group) {
-        this.group = group;
-    }
+	public Group getGroup() {
+		return group;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setGroup(Group group) {
+		this.group = group;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 }

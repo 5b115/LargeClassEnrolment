@@ -19,12 +19,6 @@ public class CustomerManagerImpl extends GenericManagerImpl<Customer, Long> impl
 
 	CustomerDao customerDao;
 
-	@Autowired
-	public void setCustomerDao(CustomerDao customerDao) {
-		this.customerDao = customerDao;
-		this.dao = this.customerDao;
-	}
-
 	@Override
 	public List<Customer> findByFullname(String fullname) {
 		// 创建查询条件数据对象
@@ -58,6 +52,12 @@ public class CustomerManagerImpl extends GenericManagerImpl<Customer, Long> impl
 		Example<Customer> ex = Example.of(queryObject, matcher);
 		List<Customer> result = dao.findAll(ex);
 		return result;
+	}
+
+	@Autowired
+	public void setCustomerDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
+		this.dao = this.customerDao;
 	}
 
 }

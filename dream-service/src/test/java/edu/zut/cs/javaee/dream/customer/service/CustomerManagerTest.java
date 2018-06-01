@@ -15,14 +15,14 @@ public class CustomerManagerTest extends GenericManagerTestCase<Long, Customer, 
 
 	CustomerManager customerManager;
 
+	public CustomerManagerTest() {
+		super(Customer.class);
+	}
+
 	@Autowired
 	public void setCustomerManager(CustomerManager customerManager) {
 		this.customerManager = customerManager;
 		this.manager = this.customerManager;
-	}
-
-	public CustomerManagerTest() {
-		super(Customer.class);
 	}
 
 	@Override

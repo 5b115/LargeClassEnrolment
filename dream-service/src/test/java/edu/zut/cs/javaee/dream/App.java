@@ -12,14 +12,14 @@ import edu.zut.cs.javaee.dream.admin.service.UserManager;
 		"classpath:/applicationContext-dao.xml", "classpath:/applicationContext-service.xml" })
 public class App extends AbstractJUnit4SpringContextTests {
 
+	User user = new User();
+
 	UserManager userManager;
 
 	@Autowired
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}
-
-	User user = new User();
 
 	// 目标对象有实现接口，spring会自动选择“JDK代理”
 	@Test

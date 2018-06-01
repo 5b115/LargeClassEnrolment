@@ -1,8 +1,9 @@
 package edu.zut.cs.javaee.dream.admin.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import edu.zut.cs.javaee.dream.admin.domain.Group;
 import edu.zut.cs.javaee.dream.base.service.GenericTreeManagerTestCase;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class GroupManagerTest extends GenericTreeManagerTestCase<Long, Group, GroupManager> {
 

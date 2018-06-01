@@ -27,9 +27,9 @@ import edu.zut.cs.javaee.dream.teach.service.StudentManager;
  */
 public class TeachEntityGenerator extends GenericGenerator {
 
-	StudentManager studentManager;
-
 	List<Student> studentList;
+
+	StudentManager studentManager;
 
 	@Autowired
 	public void setStudentManager(StudentManager studentManager) {

@@ -68,7 +68,7 @@ public abstract class GenericController<T extends BaseEntity, PK extends Seriali
 	public Page<T> get(@RequestParam(name = "page", defaultValue = "0") String pageNumber,
 			@RequestParam(name = "limit", defaultValue = "20") String pageSize) {
 		if (StringUtils.isNotBlank(pageNumber)) {
-			this.pageNumber = Integer.valueOf(pageNumber)-1;
+			this.pageNumber = Integer.valueOf(pageNumber) - 1;
 		}
 		if (StringUtils.isNotBlank(pageSize)) {
 			this.pageSize = Integer.valueOf(pageSize);

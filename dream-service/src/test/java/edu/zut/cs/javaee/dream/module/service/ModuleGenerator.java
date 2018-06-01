@@ -1,12 +1,13 @@
 package edu.zut.cs.javaee.dream.module.service;
 
-import edu.zut.cs.javaee.dream.base.service.GenericGenerator;
-import edu.zut.cs.javaee.dream.module.domain.Module;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
+import edu.zut.cs.javaee.dream.base.service.GenericGenerator;
+import edu.zut.cs.javaee.dream.module.domain.Module;
 
 public class ModuleGenerator extends GenericGenerator {
 

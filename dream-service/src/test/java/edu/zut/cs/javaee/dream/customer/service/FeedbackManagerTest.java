@@ -1,14 +1,15 @@
 package edu.zut.cs.javaee.dream.customer.service;
 
-import edu.zut.cs.javaee.dream.base.service.GenericManagerTestCase;
-import edu.zut.cs.javaee.dream.customer.domain.FeedBack;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.zut.cs.javaee.dream.base.service.GenericManagerTestCase;
+import edu.zut.cs.javaee.dream.customer.domain.FeedBack;
 
 public class FeedbackManagerTest extends GenericManagerTestCase<Long, FeedBack, FeedbackManager> {
 

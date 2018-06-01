@@ -1,10 +1,11 @@
 package edu.zut.cs.javaee.dream.admin.service;
 
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import edu.zut.cs.javaee.dream.admin.domain.Group;
 import edu.zut.cs.javaee.dream.admin.domain.User;
 import edu.zut.cs.javaee.dream.base.service.GenericGenerator;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class AdminEntityGenerator extends GenericGenerator {
 
@@ -12,10 +13,10 @@ public class AdminEntityGenerator extends GenericGenerator {
     GroupManager groupManager;
 
     @Autowired
-    UserManager userManager;
+    RoleManager roleManager;
 
     @Autowired
-    RoleManager roleManager;
+    UserManager userManager;
 
     @Test
     public void gen_group() {

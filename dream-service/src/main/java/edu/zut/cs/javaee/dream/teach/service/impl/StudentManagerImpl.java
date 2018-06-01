@@ -19,27 +19,6 @@ public class StudentManagerImpl extends GenericManagerImpl<Student, Long> implem
 
 	StudentDao studentDao;
 
-	@Autowired
-	public void setStudentDao(StudentDao studentDao) {
-		this.studentDao = studentDao;
-		this.dao = this.studentDao;
-	}
-
-	@Override
-	public List<Student> findByFullname(String fullname) {
-		// 创建查询条件数据对象
-		Student queryObject = new Student();
-		queryObject.setFullName(fullname);
-		// 创建匹配器，即如何使用查询条件
-		ExampleMatcher matcher = ExampleMatcher.matching() // 构建对象
-				.withMatcher("fullname", GenericPropertyMatchers.startsWith()) // 姓名采用“开始匹配”的方式查询
-				.withIgnorePaths("dateCreated", "dateModified"); // 忽略属性：是否关注。因为是基本类型，需要忽略掉
-		// 创建实例并查询
-		Example<Student> ex = Example.of(queryObject, matcher);
-		List<Student> result = dao.findAll(ex);
-		return result;
-	}
-
 	@Override
 	public List<Student> findByCode(String postcode) {
 
@@ -58,6 +37,27 @@ public class StudentManagerImpl extends GenericManagerImpl<Student, Long> implem
 		Example<Student> ex = Example.of(queryObject, matcher);
 		List<Student> result = dao.findAll(ex);
 		return result;
+	}
+
+	@Override
+	public List<Student> findByFullname(String fullname) {
+		// 创建查询条件数据对象
+		Student queryObject = new Student();
+		queryObject.setFullName(fullname);
+		// 创建匹配器，即如何使用查询条件
+		ExampleMatcher matcher = ExampleMatcher.matching() // 构建对象
+				.withMatcher("fullname", GenericPropertyMatchers.startsWith()) // 姓名采用“开始匹配”的方式查询
+				.withIgnorePaths("dateCreated", "dateModified"); // 忽略属性：是否关注。因为是基本类型，需要忽略掉
+		// 创建实例并查询
+		Example<Student> ex = Example.of(queryObject, matcher);
+		List<Student> result = dao.findAll(ex);
+		return result;
+	}
+
+	@Autowired
+	public void setStudentDao(StudentDao studentDao) {
+		this.studentDao = studentDao;
+		this.dao = this.studentDao;
 	}
 
 }

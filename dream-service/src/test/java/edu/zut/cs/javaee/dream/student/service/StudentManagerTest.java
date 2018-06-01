@@ -17,14 +17,14 @@ public class StudentManagerTest extends GenericManagerTestCase<Long, Student, St
 
 	StudentManager studentManager;
 
+	public StudentManagerTest() {
+		super(Student.class);
+	}
+
 	@Autowired
 	public void setStudentManager(StudentManager studentManager) {
 		this.studentManager = studentManager;
 		this.manager = this.studentManager;
-	}
-
-	public StudentManagerTest() {
-		super(Student.class);
 	}
 
 	@Before

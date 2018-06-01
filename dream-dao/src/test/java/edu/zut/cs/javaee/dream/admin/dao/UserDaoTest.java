@@ -10,22 +10,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public class UserDaoTest extends GenericDaoTestCase<Long, User, UserDao> {
-    /**
-     * Logger for this class
-     */
-    private static final Logger logger = LogManager.getLogger(UserDaoTest.class.getName());
+	/**
+	 * Logger for this class
+	 */
+	private static final Logger logger = LogManager.getLogger(UserDaoTest.class.getName());
 
-    @Autowired
-    UserDao userDao;
+	@Autowired
+	UserDao userDao;
 
-    @Test
-    public void testFindAll() {
+	@Test
+	public void testFindAll() {
 
-        List<User> result = this.userDao.findAll();
-        if (logger.isInfoEnabled()) {
-            logger.info("testFindAll() - List<User> result={}", result); //$NON-NLS-1$
-        }
+		List<User> result = this.userDao.findAll();
+		if (logger.isInfoEnabled()) {
+			logger.info("testFindAll() - List<User> result={}", result); //$NON-NLS-1$
+		}
 
-    }
+	}
 
 }

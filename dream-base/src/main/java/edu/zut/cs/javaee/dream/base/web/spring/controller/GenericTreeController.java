@@ -13,42 +13,42 @@ import java.util.List;
 
 @NoRepositoryBean
 public abstract class GenericTreeController<T extends BaseTreeEntity<T>, PK extends Serializable, M extends GenericTreeManager<T, PK>>
-        extends GenericController<T, PK, M> {
+		extends GenericController<T, PK, M> {
 
-    protected M treeManager;
+	protected M treeManager;
 
-    /**
-     * 得到树结构;
-     *
-     * @param request
-     * @param response
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/getTree/{id}", method = RequestMethod.GET, produces = "application/json")
-    public List<T> getTree(@PathVariable PK id) {
-        List<T> result = null;
-        if (id == null) {
-            result = this.treeManager.getRoot();
-        } else {
-            T node = this.treeManager.findById(id);
-            result = node.getChildren();
-        }
-        return result;
-    }
+	/**
+	 * 得到树结构;
+	 *
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/getChildren/{id}", method = RequestMethod.GET, produces = "application/json")
+	public List<T> getChildren(@PathVariable PK id) {
+		List<T> result = this.treeManager.getChildren(id);
+		logger.info(result);
+		return result;
+	}
 
-    /**
-     * 得到树结构;
-     *
-     * @param request
-     * @param response
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/getChildren/{id}", method = RequestMethod.GET, produces = "application/json")
-    public List<T> getChildren(@PathVariable PK id) {
-        List<T> result = this.treeManager.getChildren(id);
-        logger.info(result);
-        return result;
-    }
+	/**
+	 * 得到树结构;
+	 *
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/getTree/{id}", method = RequestMethod.GET, produces = "application/json")
+	public List<T> getTree(@PathVariable PK id) {
+		List<T> result = null;
+		if (id == null) {
+			result = this.treeManager.getRoot();
+		} else {
+			T node = this.treeManager.findById(id);
+			result = node.getChildren();
+		}
+		return result;
+	}
 }

@@ -3,6 +3,7 @@ package edu.zut.cs.javaee.dream.base.dao;
 import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
 
 import java.io.Serializable;
+
 /**
  * 
  * @author liuxiaoming
@@ -12,6 +13,6 @@ import java.io.Serializable;
  * @param <M>
  */
 public class GenericTreeDaoTestCase<PK extends Serializable, T extends BaseTreeEntity<T>, M extends GenericTreeDao<T, PK>>
-        extends GenericDaoTestCase<PK, T, M> {
+		extends GenericDaoTestCase<PK, T, M> {
 
 }

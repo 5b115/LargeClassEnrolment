@@ -67,40 +67,20 @@ public class BaseEntity extends BaseDomain {
 		return dateCreated;
 	}
 
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
 	public Date getDateModified() {
 		return dateModified;
-	}
-
-	public void setDateModified(Date dateModified) {
-		this.dateModified = dateModified;
 	}
 
 	public Boolean getDeleted() {
 		return deleted;
 	}
 
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
-	}
-
 	public String getEntityName() {
 		return entityName;
 	}
 
-	public void setEntityName(String entityName) {
-		this.entityName = entityName;
-	}
-
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	@Override
@@ -113,6 +93,26 @@ public class BaseEntity extends BaseDomain {
 
 	public Boolean isDeleted() {
 		return deleted;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+	public void setDateModified(Date dateModified) {
+		this.dateModified = dateModified;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	public void setEntityName(String entityName) {
+		this.entityName = entityName;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override

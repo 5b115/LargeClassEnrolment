@@ -15,51 +15,55 @@ import edu.zut.cs.javaee.dream.base.domain.BaseEntity;
  * Extend this interface if you want type safe (no casting necessary) managers
  * for your domain objects.
  *
- * @param <T>  a type variable
- * @param <PK> the primary key for that type
+ * @param <T>
+ *            a type variable
+ * @param <PK>
+ *            the primary key for that type
  * @author <a href="mailto:ming616@gmail.com">Liu Xiaoming</a>
  */
 public interface GenericManager<T extends BaseEntity, PK extends Serializable> {
 
-    /**
-     * @param page
-     * @return
-     */
-    public Page<T> findAll(Pageable page);
+	/**
+	 * * delete entity according given id
+	 *
+	 * @param id
+	 */
+	public void delete(PK id);
 
-    /**
-     * fetch all entities
-     *
-     * @return list for all entities
-     */
-    public List<T> findAll();
+	/**
+	 * fetch all entities
+	 *
+	 * @return list for all entities
+	 */
+	public List<T> findAll();
 
-    /**
-     * fetch specified entity according id;
-     *
-     * @param id entity id;
-     * @return entity
-     */
-    public T findById(PK id);
+	/**
+	 * @param page
+	 * @return
+	 */
+	public Page<T> findAll(Pageable page);
 
-    /**
-     * save specified entity;
-     *
-     * @param entity entity for saving
-     * @return saved domain entity
-     */
-    public T save(T entity);
+	/**
+	 * fetch specified entity according id;
+	 *
+	 * @param id
+	 *            entity id;
+	 * @return entity
+	 */
+	public T findById(PK id);
 
-    /**
-     * @param entities
-     * @return
-     */
-    public List<T> save(Iterable<T> entities);
+	/**
+	 * @param entities
+	 * @return
+	 */
+	public List<T> save(Iterable<T> entities);
 
-    /**
-     * * delete entity according given id
-     *
-     * @param id
-     */
-    public void delete(PK id);
+	/**
+	 * save specified entity;
+	 *
+	 * @param entity
+	 *            entity for saving
+	 * @return saved domain entity
+	 */
+	public T save(T entity);
 }

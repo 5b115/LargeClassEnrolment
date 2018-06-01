@@ -10,41 +10,41 @@ import javax.persistence.Table;
 @Entity
 public class Customer extends BaseEntity {
 
-    public String getFullname() {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -6172780675713487492L;
+
+	@Column(name = "ADDRESS")
+	String address;
+
+	@Column(name = "FULLNAME")
+	String fullname;
+
+	@Column(name = "POSTCODE")
+	String postcode;
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getFullname() {
 		return fullname;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
 
-	/**
-     *
-     */
-    private static final long serialVersionUID = -6172780675713487492L;
-
-    @Column(name = "FULLNAME")
-    String fullname;
-    
-    @Column(name = "ADDRESS")
-    String address;
-
-    @Column(name = "POSTCODE")
-    String postcode;
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
 }

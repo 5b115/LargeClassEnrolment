@@ -25,6 +25,11 @@ public abstract class GenericManagerTestCase<PK extends Serializable, T extends 
 		this.persistentClass = persistentClass;
 	}
 
+	private void assertEquals(T entity2, T foundEntity) {
+		// TODO Auto-generated method stub
+
+	}
+
 	@Before
 	public void setUp() throws Exception {
 		this.entity = this.persistentClass.getDeclaredConstructor().newInstance();
@@ -61,11 +66,6 @@ public abstract class GenericManagerTestCase<PK extends Serializable, T extends 
 				e.printStackTrace();
 			}
 		}
-
-	}
-
-	private void assertEquals(T entity2, T foundEntity) {
-		// TODO Auto-generated method stub
 
 	}
 

@@ -29,27 +29,29 @@ public class LoggingAspect {
 	 */
 	private static final Logger logger = LogManager.getLogger(LoggingAspect.class.getName());
 
-	// 配置切入点,该方法无方法体,主要为方便同类中其他方法使用此处配置的切入点
-	@Pointcut("execution(* edu.zut.cs.javaee.dream.*.service.*..*(..))")
-	public void aspect() {
-	}
-
-	/*
-	 * 配置前置通知,使用在方法aspect()上注册的切入点 同时接受JoinPoint切入点对象,可以没有该参数
-	 */
-	@Before("aspect()")
-	public void before(JoinPoint joinPoint) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("before(JoinPoint) - end"); //$NON-NLS-1$
-		}
-	}
-
 	// 配置后置通知,使用在方法aspect()上注册的切入点
 	@After("aspect()")
 	public void after(JoinPoint joinPoint) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("after(JoinPoint) - end"); //$NON-NLS-1$
 		}
+	}
+
+	// 配置后置返回通知,使用在方法aspect()上注册的切入点
+	@AfterReturning("aspect()")
+	public void afterReturn(JoinPoint joinPoint) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("afterReturn(JoinPoint) - end"); //$NON-NLS-1$
+		}
+	}
+
+	// 配置抛出异常后通知,使用在方法aspect()上注册的切入点
+	@AfterThrowing(pointcut = "aspect()", throwing = "ex")
+	public void afterThrow(JoinPoint joinPoint, Exception ex) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("afterThrow(JoinPoint, Exception) - start"); //$NON-NLS-1$
+		}
+
 	}
 
 	// 配置环绕通知,使用在方法aspect()上注册的切入点
@@ -80,21 +82,19 @@ public class LoggingAspect {
 		}
 	}
 
-	// 配置后置返回通知,使用在方法aspect()上注册的切入点
-	@AfterReturning("aspect()")
-	public void afterReturn(JoinPoint joinPoint) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("afterReturn(JoinPoint) - end"); //$NON-NLS-1$
-		}
+	// 配置切入点,该方法无方法体,主要为方便同类中其他方法使用此处配置的切入点
+	@Pointcut("execution(* edu.zut.cs.javaee.dream.*.service.*..*(..))")
+	public void aspect() {
 	}
 
-	// 配置抛出异常后通知,使用在方法aspect()上注册的切入点
-	@AfterThrowing(pointcut = "aspect()", throwing = "ex")
-	public void afterThrow(JoinPoint joinPoint, Exception ex) {
+	/*
+	 * 配置前置通知,使用在方法aspect()上注册的切入点 同时接受JoinPoint切入点对象,可以没有该参数
+	 */
+	@Before("aspect()")
+	public void before(JoinPoint joinPoint) {
 		if (logger.isDebugEnabled()) {
-			logger.debug("afterThrow(JoinPoint, Exception) - start"); //$NON-NLS-1$
+			logger.debug("before(JoinPoint) - end"); //$NON-NLS-1$
 		}
-
 	}
 
 }

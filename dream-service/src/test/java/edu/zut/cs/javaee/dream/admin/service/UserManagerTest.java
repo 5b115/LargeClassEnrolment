@@ -19,14 +19,14 @@ public class UserManagerTest extends GenericManagerTestCase<Long, User, UserMana
 
 	UserManager userManager;
 
+	public UserManagerTest() {
+		super(User.class);
+	}
+
 	@Autowired
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 		this.manager = this.userManager;
-	}
-
-	public UserManagerTest() {
-		super(User.class);
 	}
 
 	@Test

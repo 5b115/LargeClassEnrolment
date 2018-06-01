@@ -15,16 +15,16 @@ public class StudentController extends GenericController<Student, Long, StudentM
 
 	StudentManager studentManager;
 
-	@Autowired
-	public void setStudentManager(StudentManager studentManager) {
-		this.studentManager = studentManager;
-		this.manager = this.studentManager;
-	}
-
 	@RequestMapping(method = RequestMethod.GET, value = "/index.html")
 	public String index() {
 		String result = "/student/index";
 		return result;
+	}
+
+	@Autowired
+	public void setStudentManager(StudentManager studentManager) {
+		this.studentManager = studentManager;
+		this.manager = this.studentManager;
 	}
 
 }
