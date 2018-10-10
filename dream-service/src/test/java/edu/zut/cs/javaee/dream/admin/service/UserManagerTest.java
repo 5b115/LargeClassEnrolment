@@ -36,7 +36,9 @@ public class UserManagerTest extends GenericManagerTestCase<Long, User, UserMana
 		for (int i = 0;i<10;i++) {
 			User user = new User();
 			userList.add(user);
+			
 		}
 		this.userManager.save(userList);
 	}
+	
 }

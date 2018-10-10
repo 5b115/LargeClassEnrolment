@@ -58,10 +58,11 @@
 			</map>
 		</property>
 	</bean>
- <!-- 通过order属性来定义视图解析器的优先级，order的值越小优先级越低 -->
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-        <property name="order" value="0"></property>
-    </bean>
+	<!-- 通过order属性来定义视图解析器的优先级，order的值越小优先级越低 -->
+	<bean
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0"></property>
+	</bean>
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="contentNegotiationManager"
@@ -108,6 +109,6 @@
 			</props>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

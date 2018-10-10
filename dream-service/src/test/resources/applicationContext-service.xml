@@ -12,7 +12,6 @@
 	<context:component-scan
 		base-package="edu.zut.cs.javaee" />
 	<aop:aspectj-autoproxy />
-
 	<!-- <aop:config> <aop:aspect id="before" ref="beforeLogger"> <aop:pointcut 
 		id="MyPointCut" expression="execution(* edu.zut.cs.javaee.dream.*.service.*..*(..))" 
 		/> <aop:before method="before" pointcut-ref="MyPointCut" /> </aop:aspect> 

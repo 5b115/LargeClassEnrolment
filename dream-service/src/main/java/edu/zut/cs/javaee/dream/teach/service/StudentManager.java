@@ -14,13 +14,13 @@ public interface StudentManager extends GenericManager<Student, Long> {
 	/**
 	 * get student list by given code
 	 *
-	 * @param code
+	 * @param code 
 	 * @return
 	 */
 	List<Student> findByCode(String code);
 
 	/**
-	 * 
+	 *   find student by given fullname
 	 * @param fullname
 	 * @return
 	 */

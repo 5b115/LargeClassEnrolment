@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.zut.cs.javaee.dream.base.web.spring.controller.GenericController;
 import edu.zut.cs.javaee.dream.teach.domain.Student;
 import edu.zut.cs.javaee.dream.teach.service.StudentManager;
-
+/**
+ *  教学管理->学生基本信息管理
+ * @author liuxiaoming
+ *
+ */
 @Controller
 @RequestMapping("/teach/student")
 public class StudentController extends GenericController<Student, Long, StudentManager> {

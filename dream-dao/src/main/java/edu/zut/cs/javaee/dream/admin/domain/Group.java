@@ -1,9 +1,17 @@
 package edu.zut.cs.javaee.dream.admin.domain;
 
-import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
-
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import edu.zut.cs.javaee.dream.base.domain.BaseTreeEntity;
 
 @Table(name = "T_ADMIN_GROUP")
 @Entity
