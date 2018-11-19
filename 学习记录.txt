@@ -75,3 +75,4 @@
 9、学习了jQuery并应用到实际的项目中应用
 10、Servlet入门和Tomcat服务器使用，第一个servlet程序。
 11Servlet深入request对象和response对象。
+12、request请求转发，response重定向。切换jsp切换页面
