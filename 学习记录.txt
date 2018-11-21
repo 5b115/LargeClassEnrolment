@@ -77,3 +77,4 @@
 11Servlet深入request对象和response对象。 
 12、request请求转发，response重定向。切换jsp切换页面 
 13、系统登录应用，request、response、session实战练习
+14、解决不同用户访问获取相同数据的问题用servletContext对象解决。
