@@ -78,3 +78,5 @@
 12、request请求转发，response重定向。切换jsp切换页面 
 13、系统登录应用，request、response、session实战练习
 14、解决不同用户访问获取相同数据的问题用servletContext对象解决。
+15、集中整理建立了几张数据库需要用的表格，并且一一进行了规范。
+	course：课程表；flow：分流表；grade：成绩表；member：人员管理表；rule：权限规则表；student：学生信息表；volunteer：志愿填写表
