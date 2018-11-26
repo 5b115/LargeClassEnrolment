@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>百度首页模拟</title>
+	<link rel="stylesheet" type="text/css" href="../css/baidu01.css"/>
+	</head>
+	<body>
+		<div id="header">
+			<ul id="header_nav">
+				<li><a href="">新闻</a></li>
+				<li><a href="">hao123</a></li>
+				<li><a href="">地图</a></li>
+				<li><a href="">视频</a></li>
+				<li><a href="">贴吧</a></li>
+				<li><a href="">学术</a></li>
+				<li><a href="">登录</a></li>
+				<li><a href="">设置</a></li>
+			</ul>
+		</div>
+		<div id="main" align="center" >
+			<img src="../img/baidu1.png" > 
+		<br/>
+		<form action="https://www.baidu.com/s" method="get">
+		<input  type="text" name="wd" id="" value="""/>
+		<input type="submit" value="百度一下" formtarget="_blank"/>
+		</form>
+		</div>
+		<div id="footer" align="center">
+			<img src="../img/baidu2.png" style="" >
+		</div>
+	</body>
+</html>
