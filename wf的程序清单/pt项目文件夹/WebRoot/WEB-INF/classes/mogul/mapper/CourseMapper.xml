@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mogul.mapper.CourseMapper">
+   
+	<select id="selAll" resultType="Course">
+		select * from course
+	</select>
+	
+	
+	<!-- 
+	根据账号和姓名查询账户信息 
+	<select id="selByAccnoName" resultType="account" parameterType="account">
+		select * from  where accNo=#{accNo} and name=#{name}
+	</select>
+	 根据accNo修改帐户余额 
+	<update id="updBalanceByAccno" parameterType="account">
+		update account set balance=balance+#{balance} where accNo=#{accNo}	
+ 	</update>
+	-->
+</mapper>

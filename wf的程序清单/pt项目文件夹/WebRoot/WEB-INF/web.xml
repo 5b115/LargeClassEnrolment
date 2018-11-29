@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>pt</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelAllServlet</servlet-name>
+    <servlet-class>mogul.servlet.SelAllServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelAllStudentServlet</servlet-name>
+    <servlet-class>mogul.servlet.SelAllStudentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserCheckLoginServlet</servlet-name>
+    <servlet-class>mogul.servlet.UserCheckLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>InsertUserServlet</servlet-name>
+    <servlet-class>mogul.servlet.InsertUserServlet</servlet-class>
+  </servlet>
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>SelAllServlet</servlet-name>
+    <url-pattern>/selall</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelAllStudentServlet</servlet-name>
+    <url-pattern>/allstudent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserCheckLoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertUserServlet</servlet-name>
+    <url-pattern>/insertuser</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  		<filter-name>opensession</filter-name>
+  		<filter-class>mogul.filter.OpenSessionView</filter-class>
+  </filter>
+  <filter-mapping>
+  		<filter-name>opensession</filter-name>
+  		<url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
