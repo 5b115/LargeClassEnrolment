@@ -6,23 +6,23 @@
 		<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
-		<title>µÇÂ¼</title>
+		<title>ÒÆ¶¯¶ËµÇÂ¼Ò³</title>
 		<style type="text/css">
-			#pp{
-				margin-top: 166px;
+			#ss{
+			margin-top: 88px;
 			}
-			#pm1{
-				margin-top: 100px;
+			#pp{
+				margin-top:66.66px;
 			}
 			#stu{
-				margin-top: 100px;
+				margin-top: px;
 			}
 		</style>
 	</head>
 	<body>
 		<form action="http://localhost:8080/Dl/l" method="post" >
-			<div class="weui-cells weui-cells_form">
-				<img src="img/²¶»ñ1.PNG" align="center">
+			<img src="img/Ð£±ê.jpg" align="center" width="100%" style="margin-top: 88.88px;">
+			<div class="weui-cells weui-cells_form" id="ss">	
 				<div class="weui-cell">
 					<div class="weui-cell__hd"><label class="weui-label" id="pm1">Ñ§ºÅ:</label></div>
 					<div class="weui-cell__bd">
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 				
-			<button type="submit" onclick="check()" class="weui-btn weui-btn_primary" id="pp">µÇÂ¼</button>
+			<button type="submit" onclick="check()" class="weui-btn weui-btn_primary" id="pp" style="background-color:green">µÇÂ¼</button>
 		</form>
 	</body>
 	
@@ -64,3 +64,4 @@
 	<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
 	
 </html>
+
