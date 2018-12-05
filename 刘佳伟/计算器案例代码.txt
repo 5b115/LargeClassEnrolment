@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>¼ÆËãÆ÷</title>
+	<style type="text/css">
+		#shows{
+			border: solid 1px;
+			width:290px;
+			height: 460px;
+			text-align: center;
+			background-color: pink;
+			margin: auto;
+			border-radius: 5px;
+			margin-top: 50px;
+		}
+		input[type="text"]{
+			margin-top: 26px;
+			width: 270px;
+			height: 39px;	
+			font-size: 26px;
+		}
+		input[type="button"]{
+			width: 60px;
+			height: 60px;
+			margin-left: 3px;
+			margin-top: 20px;
+			margin-right: 3px;
+			font-size: 30px;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		function test(btn){
+			var num=btn.value;
+			switch(num){
+			  case"=":
+			    document.getElementById("inp").value=eval(document.getElementById("inp").value);
+			    break;
+			  case"c":
+				 document.getElementById("inp").value="";
+				 break;
+			  default:
+				document.getElementById("inp").value=document.getElementById("inp").value+num;
+				break;
+			}
+		}
+		
+	</script>
+	
+	</head>
+	<body>
+		<div id="shows" style="color: white;">
+			jw <br/>
+		       <input type="text" name="" id="inp" value="" /><br/>
+		       <input type="button" name="" id="btn" value="0" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="1" onclick="test(this)"/>
+			   <input type="button" name="" id="btn" value="2" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="3" onclick="test(this)"/><br/>
+			   <input type="button" name="" id="btn" value="4" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="5" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="6" onclick="test(this)"/>
+			   <input type="button" name="" id="btn" value="7" onclick="test(this)"/><br/>
+			   <input type="button" name="" id="btn" value="8" onclick="test(this)"/>
+			   <input type="button" name="" id="btn" value="9" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="+" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="-" onclick="test(this)"/><br/>
+			   <input type="button" name="" id="btn" value="*" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="/" onclick="test(this)" />
+			   <input type="button" name="" id="btn" value="c" onclick="test(this)"/>	
+			   <input type="button" name="" id="btn" value="=" onclick="test(this)"/>
+
+		
+		</div>
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+</html>
